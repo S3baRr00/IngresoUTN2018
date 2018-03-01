@@ -15,7 +15,7 @@ function Mostrar()
     while (contAlumno < 6) 
     {
         nota = parseInt(prompt("ingrese la nota"));
-        while (nota < 0 || nota > 10)
+        while (nota < 0 || nota > 10|| isNaN(nota) )
         {
             nota = parseInt(prompt(" Error: ingrese nuevamente la nota"));
         }

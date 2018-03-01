@@ -9,36 +9,71 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
 
  */
 function CalcularPrecio() {
-    var precio = 35
-    var cantidad = document.getElementById("Cantidad").value;
-    var marca;
+    var precio = parseFloat( 35)
+    var cantidad =parseInt(document.getElementById("Cantidad").value);
+    var marca=document.getElementById("Marca").value;
     var precioFinal;
-    switch ("Cantidad") {
-        case "1":
-            { }
-        case "2":
-            { }
-        case "3":
+    switch (cantidad) 
+    {
+        case 1:
+            {
+
+             }
+        case 2:
+            {
+                precioFinal= (precio*cantidad) 
+                break;
+            }
+        case 3:
             {
                 if (marca == "ArgentinaLuz") 
                 {
-                    precioFinal = precio * 1.15
+                    precioFinal = (precio / 1.15)* cantidad;
                 }
-                else if (marca == "Felipe Lamparas") 
+                else if (marca == "FelipeLamparas") 
                 {
-                    precioFinal = precio * 1.10
+                    precioFinal = (precio / 1.10)* cantidad;
                 }
                 else {
-                    precioFinal = precio * 1.05
+                    precioFinal = (precio / 1.05)* cantidad;
                 }
+                break;
             }
-            case "4":
+            case 4:
             {
                 if(marca== "ArgentinaLuz"|| marca=="FelipeLamparas")
                 {
-                    precioFinal=precio*1.25
+                    precioFinal = (precio/1.25)* cantidad;
+                }
+                else
+                {
+                    precioFinal = (precio/1.20)* cantidad;
                 }
             }
-
+            case 5:
+            {
+                if(marca=="ArgentinaLuz")
+                {
+                    precioFinal = (precio/1.40)* cantidad;
+                }
+                else
+                {
+                    precioFinal = (precio/1.30)* cantidad;
+                }
+            }
     }
+     if(cantidad>=6)
+                {
+                    precioFinal = (precio/1.50)* cantidad;
+                }
+
+
+
+    if(precioFinal>120)
+    {
+       precioFinal= precioFinal * 1.10;
+    }
+document.getElementById("precioDescuento").value=("usted pago $"+precioFinal.toFixed(2)+" de IIBB");
+
 }
+

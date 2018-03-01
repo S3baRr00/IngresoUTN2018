@@ -6,18 +6,29 @@ function Mostrar()
     var Max;
     var Min;
     var flag = 0;
-    do {
-        importe = parseInt(prompt("ingrese su importe"));
-        contImportes++;
-        if (importe > Max || flag == 0)
+    
+    do 
+    {
+        importe = (prompt("ingrese su importe"));
+
+        while (importe == "cero"|| importe <= 0) 
         {
-        Max = importe;
+            importe = parseInt(prompt("Error: Reingrese su importe"));
         }
-        if (importe < Min || flag == 0)
-        {   
-        Min = importe;
-        flag = 1;
+
+        contImportes++;
+
+        if (importe > Max || flag == 0) 
+        {
+            Max = importe;
         }
+
+        if (importe < Min || flag == 0) 
+        {
+            Min = importe;
+            flag = 1;
+        }
+
     } while (contImportes < 8)
 
 
